@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/styles.css">
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container-main">
+        <div class="container-top">
+            <div class="row">
+                <div class="col p-0">
+                    <div class="row d-flex flex-row justify-content-center">
+                        <form class="d-flex justify-content-center">
+                            <input id="search-input" type="text" placeholder="Search   🔎"
+                                class="mr-1 ml-1 shadow-sm"></input>
+                            <input id="search-btn" type="submit" value="Search" class="mr-1 ml-1 shadow-sm"></input>
+                        </form>
+                        <div id="city" class="row  city"></div>
+                    </div>
+                </div>
+                <div class="col p-0">
+                    <div id="time" class="row d-flex justify-content-center time">
+                        time
+                    </div>
+                    <div class="d-flex flex-row justify-content-center img-temp">
+                        <div class="mr-3 ml-3">🌞</div>
+                        <div class="mr-3 ml-3 d-flex flex-row justify-content-center "><span id="temp">--</span>
+                            <div class="temp-symbol pt-2 pl-2"><a href="#" id="celsius-link">℃</a></div>
+                            <div class="temp-symbol pt-2 pl-2"><a href="#" id="fahrenheit-link">℉</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div class="location-container d-flex justify-content-center align-items-center">
+   
+    <button id="current-location">Get Temperature at Your Current Location</button>
+
+        <div class="container-middle">
+            <div class="row">
+                <div class="col p-0">
+                    <div class="row d-flex flex-row justify-content-end">
+                        <div id="city-current-loc" class="row  city"></div>
+                    </div>
+                </div>
+                <div class="col p-0 d-flex align-items-center">
+                    <div class="d-flex flex-row justify-content-center img-temp ">
+                        <div class="mr-3 ml-3 ">🌞</div>
+                        <div class="mr-3 ml-3 d-flex flex-row justify-content-center"><span id="temp-current-loc">--</span>
+                            <div class="temp-symbol pt-2 pl-2"><a href="#" id="celsius-link-current-loc">℃</a></div>
+                            <div class="temp-symbol pt-2 pl-2"><a href="#" id="fahrenheit-link-current-loc">℉</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+        <div class="container-bottom text-center">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center bottom-title">
+                        Forecast for the next 5 days
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+
+                    </div>
+                    <div class="col-5">
+                        Monday
+                    </div>
+                    <div class="col-5 temp-img-small">
+                        <div>⛅</div>
+                        <div> 25℃</div>
+                    </div>
+                    <div class="col-1">
+
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+
+                    </div>
+                    <div class="col-5">
+                        Tuesday
+                    </div>
+                    <div class="col-5 temp-img-small">
+                        <div>🌩</div>
+                        <div> 31℃</div>
+                    </div>
+                    <div class="col-1">
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-1">
+
+                    </div>
+                    <div class="col-5">
+                        Wednesday
+                    </div>
+                    <div class="col-5 temp-img-small">
+                        <div>🌥</div>
+                        <div> 24℃</div>
+                    </div>
+                    <div class="col-1">
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-1">
+
+                    </div>
+                    <div class="col-5">
+                        Thursday
+                    </div>
+                    <div class="col-5 temp-img-small">
+                        <div>☀</div>
+                        <div> 26℃</div>
+                    </div>
+                    <div class="col-1">
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-1">
+
+                    </div>
+                    <div class="col-5">
+                        Friday
+                    </div>
+                    <div class="col-5 temp-img-small">
+                        <div>🌦</div>
+                        <div> 27℃</div>
+                    </div>
+                    <div class="col-1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Coded by Simona Limontaite</p>
+        </div>
+
+
+    </div>
+    <script src="config.js"></script>
+    <script src="index.js"></script>
+    
+
+</body>
+
+</html>
