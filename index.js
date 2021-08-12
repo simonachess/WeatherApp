@@ -70,7 +70,6 @@ function changeTempF(event, temp, selector) {
     currentTemp.innerHTML = tempF;
 }
 
-
 let linkCelc = document.querySelector("#celsius-link");
 linkCelc.addEventListener("click", (e) => changeTempC(e, tempC, '#temp'));
 
