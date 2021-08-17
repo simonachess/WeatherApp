@@ -42,7 +42,6 @@ function searchingCity(event) {
 }
 
 
-
 function showTemp(response) {
     console.log(response);
     console.log(response.data.main.temp);
@@ -70,11 +69,14 @@ function changeTempF(event, temp, selector) {
     currentTemp.innerHTML = tempF;
 }
 
+let input = document.querySelector('#search-input');
 let linkCelc = document.querySelector("#celsius-link");
-linkCelc.addEventListener("click", (e) => changeTempC(e, tempC, '#temp'));
-
 let linkFahr = document.querySelector("#fahrenheit-link");
+
+if (input.value){
+linkCelc.addEventListener("click", (e) => changeTempC(e, tempC, '#temp'));
 linkFahr.addEventListener("click", (e) => changeTempF(e, tempC, '#temp'));
+}
 
 
 let locationContainer = document.querySelector(".container-middle");
@@ -104,10 +106,13 @@ locationButton.addEventListener('click', () => {
             currentLocTemp.innerHTML = `${temp}`;
 
             let linkCelcCurrent = document.querySelector("#celsius-link-current-loc");
-            linkCelcCurrent.addEventListener("click", (e) => changeTempC(e, temp, '#temp-current-loc'));
-
             let linkFahrCurrent = document.querySelector("#fahrenheit-link-current-loc");
+            
+            
+           
+            linkCelcCurrent.addEventListener("click", (e) => changeTempC(e, temp, '#temp-current-loc'));
             linkFahrCurrent.addEventListener("click", (e) => changeTempF(e, temp, '#temp-current-loc'));
+        
         });
     }
     navigator.geolocation.getCurrentPosition(handlePosition);
