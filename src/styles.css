@@ -4,6 +4,10 @@ body {
     justify-content: center;
 }
 
+p{
+    margin: 0;
+}
+
 .container-main {
     width: 600px;
     min-width: 360px;
@@ -54,11 +58,11 @@ body {
 }
 
 .img-temp {
-    font-size: 36px;
+    font-size: 30px;
 }
 
 .time {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 #search-input {
@@ -106,4 +110,9 @@ a:hover {
     background-color: rgb(35, 120, 216);
     color: #fff;
     border: 1px solid #fff;
+}
+
+.wind-humidity{
+    text-align: center;
+    font-size: 16px;
 }

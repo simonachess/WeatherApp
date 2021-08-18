@@ -17,6 +17,13 @@ let currentHour = date.getHours();
 let currentMinutes = date.getMinutes();
 
 function formatDate(newDate) {
+    if (currentMinutes < 10){
+        currentMinutes = `0${currentMinutes}`
+    }
+    if (currentHour < 10) {
+        currentHour = `0${currentHour}`
+    }
+
     newDate = `${weekDay}, ${currentHour}:${currentMinutes}`;
     return newDate;
 }
@@ -49,7 +56,15 @@ function showTemp(response) {
     let h1Temp = document.querySelector("#temp");
     h1Temp.innerHTML = temp;
     tempC = temp;
-
+    let speedData = Math.round(response.data.wind.speed);
+    let speedInput = document.querySelector("#speed");
+    speedInput.innerHTML = `Wind speed: ${speedData} km/h`;
+    let humidityData = Math.round(response.data.main.humidity);
+    let humidityInput = document.querySelector("#humidity");
+    humidityInput.innerHTML = `Humidity: ${humidityData}%`;
+    let descriptionData = response.data.weather[0].description;
+    let descriptionInput = document.querySelector("#description");
+    descriptionInput.innerHTML = `<i>${descriptionData}</i>`;
 }
 
 let searchButton = document.querySelector("#search-btn");
@@ -73,10 +88,17 @@ let input = document.querySelector('#search-input');
 let linkCelc = document.querySelector("#celsius-link");
 let linkFahr = document.querySelector("#fahrenheit-link");
 
-if (input.value){
-linkCelc.addEventListener("click", (e) => changeTempC(e, tempC, '#temp'));
-linkFahr.addEventListener("click", (e) => changeTempF(e, tempC, '#temp'));
-}
+
+//todo doesnt work link if check input value
+
+linkCelc.addEventListener("click", (e) => {
+    if (input.value){changeTempC(e, tempC, '#temp')} 
+})
+
+linkFahr.addEventListener("click", (e) => {
+    if(input.value){changeTempF(e, tempC, '#temp')}
+});
+
 
 
 let locationContainer = document.querySelector(".container-middle");
