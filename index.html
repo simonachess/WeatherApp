@@ -25,7 +25,9 @@
                             <input id="search-btn" type="submit" value="Search" class="mr-1 ml-1 shadow-sm"></input>
                         </form>
                         <div id="city" class="row  city"></div>
+                        
                     </div>
+                    
                 </div>
                 <div class="col p-0">
                     <div id="time" class="row d-flex justify-content-center time">
@@ -33,16 +35,17 @@
                     </div>
                     <div class="d-flex flex-column justify-content-center img-temp">
                         <div class="d-flex flex-row justify-content-center">
-                            
-                        <div class="mr-3 ml-3"><img src="" alt="" id=""> </div>
-                        <div class="mr-3 ml-3 d-flex"><span id="temp">--</span>
-                            <div class="temp-symbol pt-2 pl-2"><a href="#" id="celsius-link">℃</a></div>
-                            <div class="temp-symbol pt-2 pl-2"><a href="#" id="fahrenheit-link">℉</a></div>
-                        </div></div>
+                            <div class="mr-3 ml-3"><img src="" alt="" id="icon"> </div>
+                            <div class="mr-3 ml-3 d-flex align-items-center">
+                                <div id="temp">--</div>
+                                <div class="temp-symbol pt-2 pl-2"><a href="#" id="celsius-link">℃</a></div>
+                                <div class="temp-symbol pt-2 pl-2"><a href="#" id="fahrenheit-link">℉</a></div>
+                            </div>
+                        </div>
                         <div class="wind-humidity">
-                            <p id="description">description</p>
-                            <p id="speed">speed</p>
-                            <p id="humidity">humidity</p>
+                            <p id="description"></p>
+                            <p id="speed"></p>
+                            <p id="humidity"></p>
                         </div>
                     </div>
                 </div>
@@ -61,8 +64,8 @@
                     </div>
                     <div class="col p-0 d-flex align-items-center">
                         <div class="d-flex flex-row justify-content-center img-temp ">
-                            <div class="mr-3 ml-3 ">🌞</div>
-                            <div class="mr-3 ml-3 d-flex flex-row justify-content-center"><span
+                            <div class="mr-3 ml-3 "><img src="" alt="" id="icon-local"></div>
+                            <div class="mr-3 ml-3 d-flex flex-row justify-content-center align-items-center"><span
                                     id="temp-current-loc">--</span>
                                 <div class="temp-symbol pt-2 pl-2"><a href="#" id="celsius-link-current-loc">℃</a></div>
                                 <div class="temp-symbol pt-2 pl-2"><a href="#" id="fahrenheit-link-current-loc">℉</a>

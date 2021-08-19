@@ -9,7 +9,7 @@ p{
 }
 
 .container-main {
-    width: 600px;
+    width: 640px;
     min-width: 360px;
     padding: 20px 0;
     margin: 30px 0;
@@ -92,7 +92,7 @@ p{
 }
 
 .temp-symbol {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 a:hover {
