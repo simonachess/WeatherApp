@@ -17,13 +17,12 @@ let currentHour = date.getHours();
 let currentMinutes = date.getMinutes();
 
 function formatDate(newDate) {
-    if (currentMinutes < 10){
+    if (currentMinutes < 10) {
         currentMinutes = `0${currentMinutes}`
     }
     if (currentHour < 10) {
         currentHour = `0${currentHour}`
     }
-
     newDate = `${weekDay}, ${currentHour}:${currentMinutes}`;
     return newDate;
 }
@@ -32,24 +31,37 @@ let currentTime = document.querySelector("#time");
 currentTime.innerHTML = formatDate(new Date());
 
 
-function searchingCity(event) {
-    event.preventDefault();
-
-    let searchingCityName = document.querySelector("#search-input");
-    let cityText = document.querySelector("#city");
-    let city = searchingCityName.value;
-
-    if (city) {
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-        cityText.innerHTML = city;
-        axios.get(apiUrl).then(showTemp);
-    } else {
-        alert('Enter city name');
-    }
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ['Sun', "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    return days[day];
 }
 
+function displayForecast(response) {
+    console.log(response.data.daily);
+    let forecast = response.data.daily;
+    let forecastElement = document.querySelector("#forecast");
+    let forecastHTML = '';
 
+    forecast.forEach(function (forecastDay, index) {
+        if (index < 5) {
+            forecastHTML = forecastHTML + `<div><div>${formatDay(forecastDay.dt)}</div>
+            <div><img src='http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png'></div>
+            <div><span>${Math.round(forecastDay.temp.max)}℃ </span>
+            <span style="color:grey">${Math.round(forecastDay.temp.min)}℃</span></div></div>`;
 
+        }
+    });
+
+    forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    console.log(apiUrl);
+    axios.get(apiUrl).then(displayForecast);
+}
 
 function showTemp(response) {
     console.log(response);
@@ -69,7 +81,27 @@ function showTemp(response) {
     descriptionInput.innerHTML = `<i>${descriptionData}</i>`;
     let iconElement = document.querySelector("#icon");
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+    getForecast(response.data.coord)
+
 }
+
+function searchingCity(event) {
+    event.preventDefault();
+
+    let searchingCityName = document.querySelector("#search-input");
+    let cityText = document.querySelector("#city");
+    let city = searchingCityName.value;
+
+    if (city) {
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        cityText.innerHTML = city;
+        axios.get(apiUrl).then(showTemp);
+    } else {
+        alert('Enter city name');
+    }
+}
+
 
 let searchButton = document.querySelector("#search-btn");
 searchButton.addEventListener("click", searchingCity);
@@ -96,11 +128,11 @@ let linkFahr = document.querySelector("#fahrenheit-link");
 //todo doesnt work link if check input value
 
 linkCelc.addEventListener("click", (e) => {
-    if (input.value){changeTempC(e, tempC, '#temp')} 
+    if (input.value) { changeTempC(e, tempC, '#temp') }
 })
 
 linkFahr.addEventListener("click", (e) => {
-    if(input.value){changeTempF(e, tempC, '#temp')}
+    if (input.value) { changeTempF(e, tempC, '#temp') }
 });
 
 
@@ -133,12 +165,12 @@ locationButton.addEventListener('click', () => {
 
             let linkCelcCurrent = document.querySelector("#celsius-link-current-loc");
             let linkFahrCurrent = document.querySelector("#fahrenheit-link-current-loc");
-            
-            
-           
+
+
+
             linkCelcCurrent.addEventListener("click", (e) => changeTempC(e, temp, '#temp-current-loc'));
             linkFahrCurrent.addEventListener("click", (e) => changeTempF(e, temp, '#temp-current-loc'));
-        
+
             let iconLocalElement = document.querySelector("#icon-local");
             iconLocalElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
@@ -147,3 +179,5 @@ locationButton.addEventListener('click', () => {
     navigator.geolocation.getCurrentPosition(handlePosition);
 
 });
+
+

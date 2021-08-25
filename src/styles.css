@@ -2,15 +2,18 @@ body {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    width: 100vw;
+    height: 80vh;
 }
 
-p{
+p {
     margin: 0;
 }
 
 .container-main {
     width: 640px;
-    min-width: 360px;
+    min-width: 640px;
+    min-height: 800px;
     padding: 20px 0;
     margin: 30px 0;
     border: 1px solid lightslategray;
@@ -112,7 +115,20 @@ a:hover {
     border: 1px solid #fff;
 }
 
-.wind-humidity{
+.wind-humidity {
     text-align: center;
     font-size: 16px;
+}
+
+.location-container {
+    margin: 10px 0;
+    height: 100px;
+}
+
+#forecast {
+    margin: 40px 20px;
+}
+
+#forecast span{
+    font-size: 14px;
 }

@@ -16,7 +16,7 @@
 <body>
     <div class="container-main">
         <div class="container-top">
-            <div class="row">
+            <div class="row" style="height: 230px;">
                 <div class="col p-0">
                     <div class="row d-flex flex-row justify-content-center">
                         <form class="d-flex justify-content-center">
@@ -25,9 +25,9 @@
                             <input id="search-btn" type="submit" value="Search" class="mr-1 ml-1 shadow-sm"></input>
                         </form>
                         <div id="city" class="row  city"></div>
-                        
+
                     </div>
-                    
+
                 </div>
                 <div class="col p-0">
                     <div id="time" class="row d-flex justify-content-center time">
@@ -84,94 +84,19 @@
                         Forecast for the next 5 days
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-1">
-
-                    </div>
-                    <div class="col-5">
-                        Monday
-                    </div>
-                    <div class="col-5 temp-img-small">
-                        <div>⛅</div>
-                        <div> 25℃</div>
-                    </div>
-                    <div class="col-1">
-
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1">
-
-                    </div>
-                    <div class="col-5">
-                        Tuesday
-                    </div>
-                    <div class="col-5 temp-img-small">
-                        <div>🌩</div>
-                        <div> 31℃</div>
-                    </div>
-                    <div class="col-1">
-
+                <div style="display: flex; flex-direction: column;">
+                    <div id="forecast" style="display:flex; flex-direction: row; justify-content: space-around;">
                     </div>
 
-                </div>
-                <div class="row">
-                    <div class="col-1">
-
-                    </div>
-                    <div class="col-5">
-                        Wednesday
-                    </div>
-                    <div class="col-5 temp-img-small">
-                        <div>🌥</div>
-                        <div> 24℃</div>
-                    </div>
-                    <div class="col-1">
-
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-1">
-
-                    </div>
-                    <div class="col-5">
-                        Thursday
-                    </div>
-                    <div class="col-5 temp-img-small">
-                        <div>☀</div>
-                        <div> 26℃</div>
-                    </div>
-                    <div class="col-1">
-
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-1">
-
-                    </div>
-                    <div class="col-5">
-                        Friday
-                    </div>
-                    <div class="col-5 temp-img-small">
-                        <div>🌦</div>
-                        <div> 27℃</div>
-                    </div>
-                    <div class="col-1">
-                    </div>
                 </div>
             </div>
-        </div>
-        <div class="footer">
-            <p><a href="https://github.com/simonachess/WeatherApp">Open-source code </a>Coded by Simona Limontaite</p>
-        </div>
 
-
-    </div>
-    <script src="config.js"></script>
-    <script src="index.js"></script>
+            <div class="footer">
+                <p><a href="https://github.com/simonachess/WeatherApp">Open-source code </a>Coded by Simona Limontaite
+                </p>
+            </div>
+            <script src="config.js"></script>
+            <script src="index.js"></script>
 
 
 </body>
